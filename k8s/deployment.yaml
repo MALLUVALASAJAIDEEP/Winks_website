@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: winks-deployment
+  labels:
+    app: winks
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: winks
+  template:
+    metadata:
+      labels:
+        app: winks
+    spec:
+      containers:
+      - name: winks-container
+        image: jaideep2541/winks-static:v1
+        ports:
+        - containerPort: 80
+
